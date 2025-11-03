@@ -1,15 +1,9 @@
-package synchronisation.AdderSubtractorMutex;
-
-import java.util.Map;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+package synchronisation.synchronisedMethod;
 
 public class Client {
     static void main() throws InterruptedException {
         Count count = new Count();
-        Lock lock = new ReentrantLock();//mutex lock
-
-        System.out.println(count.value);
+        System.out.println(count.getValue());
 
         /*
         *   1. Add nums from 1 to 100 to count.value
@@ -21,8 +15,8 @@ public class Client {
         *   final value = 0;
         */
 
-        Adder adder = new Adder(count,lock);
-        Subtractor subtractor = new Subtractor(count,lock);
+        Adder adder = new Adder(count);
+        Subtractor subtractor = new Subtractor(count);
 
         Thread t1 = new Thread(adder);
         Thread t2 = new Thread(subtractor);
@@ -34,7 +28,7 @@ public class Client {
         t1.join();// waiting the thread to terminate
         t2.join();
 
-        System.out.println(count.value);
+        System.out.println(count.getValue());
 
     }
 }
