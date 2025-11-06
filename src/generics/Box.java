@@ -30,3 +30,7 @@ public class Box <T,V>{
 //        }
 //    }
 }
+
+static class Car implements Comparable{
+
+}
