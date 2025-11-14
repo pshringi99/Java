@@ -1,6 +1,8 @@
 package Collections.InventoryManagementSystem;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class WishList<T extends Item> {
@@ -16,5 +18,8 @@ public class WishList<T extends Item> {
 
     public boolean removeFromWishList(T item){
         return wishlist.remove(item);
+    }
+    public List<T> getWishListItems(){
+        return new ArrayList<>(wishlist);
     }
 }

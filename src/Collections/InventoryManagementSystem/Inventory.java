@@ -1,8 +1,6 @@
 package Collections.InventoryManagementSystem;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Inventory<T extends Item>{
     HashMap<String,T> inventory;
@@ -22,7 +20,7 @@ public class Inventory<T extends Item>{
     public void removeItem(T item){
         inventory.remove(item.getId());
     }
-    public Item getItem(String id){
+    public T getItem(String id){
         return inventory.get(id);
     }
     public List<T> getAllItem(){
@@ -45,5 +43,11 @@ public class Inventory<T extends Item>{
             }
         }
         return filteredList;
+    }
+
+    public List<T> sortItem(Comparator<T> comparator){
+        List<T> sortedItems = new ArrayList<>(inventory.values());
+        Collections.sort(sortedItems,comparator);
+        return sortedItems;
     }
 }

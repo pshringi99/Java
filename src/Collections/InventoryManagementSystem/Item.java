@@ -63,4 +63,11 @@ public class Item implements Comparable<Item>{
             else return 0;
         }
     }
+    /*
+this.compareTo(other)
+
+< 0 -> current object is smaller than the other object -> | this ... other|
+= 0 -> both items are equal -> |this ... other | or | other ... this |
+> 0 -> current object is greater than the other object -> | other ... this |
+ */
 }

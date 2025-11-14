@@ -12,7 +12,7 @@ public class OrderExpress {
     public void addOrder(Order order){
         pq.add(order);
     }
-    public Order processOrder(Order order){
+    public Order processOrder(){
         return pq.poll();
     }
     public int getSize(){
